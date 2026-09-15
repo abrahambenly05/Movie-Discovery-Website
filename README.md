@@ -1,1 +1,1 @@
-# Movie-Discovery-Website
+# CineScope
