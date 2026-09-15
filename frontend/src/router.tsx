@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
 import SearchPage from './pages/SearchPage'
 import MovieDetailPage from './pages/MovieDetailPage'
@@ -8,28 +9,15 @@ import WatchlistPage from './pages/WatchlistPage'
 
 const router = createBrowserRouter([
     {
-        path: '/',
-        element: <HomePage />,
-    },
-    {
-        path: '/search',
-        element: <SearchPage />,
-    },
-    {
-        path: '/movie/:id',
-        element: <MovieDetailPage />,
-    },
-    {
-        path: '/login',
-        element: <LoginPage />,
-    },
-    {
-        path: '/register',
-        element: <RegisterPage />,
-    },
-    {
-        path: '/watchlist',
-        element: <WatchlistPage />,
+        element: <Layout />,
+        children: [
+            { path: '/', element: <HomePage /> },
+            { path: '/search', element: <SearchPage /> },
+            { path: '/movie/:id', element: <MovieDetailPage /> },
+            { path: '/login', element: <LoginPage /> },
+            { path: '/register', element: <RegisterPage /> },
+            { path: '/watchlist', element: <WatchlistPage /> },
+        ],
     },
 ])
 
