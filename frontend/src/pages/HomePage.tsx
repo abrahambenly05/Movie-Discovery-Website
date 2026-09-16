@@ -23,7 +23,7 @@ function HomePage() {
         setPopular(popularData.results)
         setUpcoming(upcomingData.results)
       } catch (err) {
-        setError('Failed to load movie data.')
+        setError('Failed to load movies. Please try again later')
         console.error(err)
       } finally {
         setLoading(false)
