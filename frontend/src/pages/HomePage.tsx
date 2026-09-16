@@ -23,7 +23,7 @@ function HomePage() {
         setPopular(popularData.results)
         setUpcoming(upcomingData.results)
       } catch (err) {
-        setError('Failed to load movies. Please try again later')
+        setError('Failed to load movies. Please try again later.')
         console.error(err)
       } finally {
         setLoading(false)
@@ -36,7 +36,7 @@ function HomePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <p className="text-white text-lg">Loading film...</p>
+        <p className="text-white text-lg">Loading movies...</p>
       </div>
     )
   }
