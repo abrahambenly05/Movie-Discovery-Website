@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate, Link, useLocation } from "react-router-dom"
 import { loginUser } from "../api/authApi"
 import { useAuth } from '../context/useAuth'
 import axios from "axios"
@@ -12,6 +12,8 @@ function LoginPage() {
 
   const { login } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+  const successMessage = (location.state as { successMessage?: string } | null)?.successMessage
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -37,6 +39,10 @@ function LoginPage() {
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-6">
       <div className="w-full max-w-sm bg-gray-800 rounded-lg p-8">
         <h1 className="text-2xl font-bold text-white mb-6">Login</h1>
+
+        {successMessage && (
+          <p className="text-green-500 text-sm mb-4">{successMessage}</p>
+        )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
