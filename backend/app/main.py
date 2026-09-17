@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import movies, auth
+from app.routers import movies, auth, watchlist
 from app.core.database import Base, engine
 
 Base.metadata.create_all(bind=engine)
@@ -17,6 +17,7 @@ app.add_middleware(
 
 app.include_router(movies.router)
 app.include_router(auth.router)
+app.include_router(watchlist.router)
 
 @app.get("/")
 async def root():
