@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Layout from './components/Layout'
+import ProtectedRoute from './components/ProtectedRoute'
 import HomePage from './pages/HomePage'
 import SearchPage from './pages/SearchPage'
 import MovieDetailPage from './pages/MovieDetailPage'
@@ -16,7 +17,10 @@ const router = createBrowserRouter([
             { path: '/movie/:id', element: <MovieDetailPage /> },
             { path: '/login', element: <LoginPage /> },
             { path: '/register', element: <RegisterPage /> },
-            { path: '/watchlist', element: <WatchlistPage /> },
+            { 
+                element: <ProtectedRoute />,
+                children: [{ path: '/watchlist', element: <WatchlistPage /> }],
+            },
         ],
     },
 ])
