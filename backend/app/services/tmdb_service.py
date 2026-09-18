@@ -55,3 +55,11 @@ async def get_genre_list():
         response = await client.get(url, headers=HEADERS)
         response.raise_for_status()
         return response.json()
+    
+async def discover_movies_by_genre(genre_id: int):
+    url = f"{TMDB_BASE_URL}/discover/movie"
+    params = {"with_genres": genre_id, "sort_by": "popularity.desc"}
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, headers=HEADERS, params=params)
+        response.raise_for_status()
+        return response.json()

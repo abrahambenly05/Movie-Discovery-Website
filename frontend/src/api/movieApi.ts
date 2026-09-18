@@ -32,3 +32,15 @@ export const getGenres = async (): Promise<GenreListResponse> => {
     const response = await axiosInstance.get('/movies/genres')
     return response.data
 }
+
+export const getGenreListSimple = async (): Promise<{ id: number; name: string}[]> => {
+    const response = await axiosInstance.get('/movies/genres')
+    return response.data.genres
+}
+
+export const discoverByGenre = async (genreId: number): Promise<MovieListResponse> => {
+    const response = await axiosInstance.get('/movies/discover', {
+        params: {  genre_id: genreId },
+    })
+    return response.data
+}

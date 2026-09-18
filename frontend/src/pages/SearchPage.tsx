@@ -22,7 +22,7 @@ function SearchPage() {
       setHasSearched(false)
       return
     }
-
+    
     const fetchResults = async () => {
       try {
         setLoading(true)

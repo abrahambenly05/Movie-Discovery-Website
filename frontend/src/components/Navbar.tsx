@@ -11,7 +11,7 @@ function Navbar() {
     }
 
     return (
-        <nav className="bg-gray-900 border-b border-gray-800 px-6 py-4">
+        <nav className="bg-gray-800 border-b border-gray-700 px-6 py-4">
             <div className="max-w-6xl mx-auto flex items-center justify-between">
                 <Link to="/" className="text-2xl font-bold text-red-500">
                     CineScope

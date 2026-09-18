@@ -38,6 +38,13 @@ async def genres():
     except Exception as e:
         raise HTTPException(status_code=502, detail=str(e))
     
+@router.get("/discover")
+async def discover_by_genre(genre_id: int):
+    try:
+        return await tmdb_service.discover_movies_by_genre(genre_id)
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=str(e))
+    
 @router.get("/{movie_id}")
 async def movie_detail(movie_id: int):
     try:
